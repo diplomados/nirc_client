@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    	<meta charset=UTF-8">
+        <title>Node fic</title>
+        <script src="jquery.min.js"></script>
+        <script src="http://localhost:9000/socket.io/socket.io.js"></script>
+<script>
+	var websocket;
+$(document).on("ready", iniciar);
+function iniciar()
+{
+	websocket= io.connect("http://localhost:9000");
+	websocket.on("notificarMensaje",recibirMensaje);
+	$("#formulario").on("submit",enviarMensaje);
+}
+function enviarMensaje(e)
+{
+	e.preventDefault();
+	websocket.emit("escucharMensaje",$("#nombre").val());
+}
+function recibirMensaje(datosServidor)
+{
+
+     $("#conversacion").append(""+datosServidor+"<br>");
+}
+</script>
+    </head>
+    <body>
+        <form id="formulario"> 
+        	<label>Nombre:</label>
+        	<input type="text" id="nombre" required/>
+
+        </form>
+        <div id="conversacion"></div>
+    </body>
+</html>
