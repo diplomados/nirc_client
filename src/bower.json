@@ -1,0 +1,19 @@
+{
+  "name": "demo01",
+  "description": "este es un ejemplo para gulp",
+  "main": "gulpfile.js",
+  "authors": [
+    "Angel"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "gulp",
+    "web",
+    "js",
+    "css"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "jquery": "^1.8.3"
+  }
+}
